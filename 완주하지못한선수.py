@@ -1,22 +1,20 @@
 
-def solusion (completion,participant):
-    answer =""
+def solution(participant, completion):
+    answer = ""
     
     completion.sort()
     participant.sort()
 
-    for i in range(len(participant)):
+    completion.append('null')
     
-        if not completion:
-            answer = participant[0]
+    for i in range(len(participant)):
+
+        if completion[i] == 'null':
+            answer = participant[i]
             break
 
-        if participant[0] == completion[0]:
-            del participant[0]
-            del completion[0]
-            print(participant)
-            print(completion)
-        else:
-            answer = participant[0]
-    
+        if participant[i] != completion[i]:
+            answer = participant[i]
+            break
+        
     return answer

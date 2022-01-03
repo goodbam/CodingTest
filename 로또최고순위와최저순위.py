@@ -2,7 +2,7 @@
 def solution(lottos,win_nums):
     anwer=[0,0]
     
-    anwerNum = 0
+    Num = 0
     lostNum = 0
 
     for i in range(0,6):
@@ -11,42 +11,16 @@ def solution(lottos,win_nums):
         else:
             for j in range(0,6):
                 if  lottos[i] == win_nums[j]:
-                    anwerNum += 1
+                    Num += 1
                     break
     
-    max = anwerNum + lostNum
-    min = anwerNum
+    max = Num + lostNum
+    min = Num
 
-    if  max == 6:
-        anwer[0] = 1
-    elif max == 5:
-        anwer[0] = 2
-    elif max == 4:
-        anwer[0] = 3
-    elif max == 3:
-        anwer[0] = 4
-    elif max == 2:
-        anwer[0] = 5
-    elif max == 1:
-        anwer[0] = 6
-    elif max == 0:
-        anwer[0] = 6    
-        
+    reslut = {6:1, 5:2, 4:3, 3:4, 2:5, 1:6, 0:6}
     
-    if min == 6:
-        anwer[1] = 1
-    elif min ==5:
-        anwer[1] = 2
-    elif min ==4:
-        anwer[1] = 3
-    elif min ==3:
-        anwer[1] = 4
-    elif min ==2:
-        anwer[1] = 5
-    elif min ==1:
-        anwer[1] = 6
-    elif min ==0:
-        anwer[1] = 6
-    
+    anwer[0] = reslut[max]
+    anwer[1] = reslut[min]
+
     return anwer
     
